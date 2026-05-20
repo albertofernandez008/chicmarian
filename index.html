@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plh7eqjy08VEB9MHoFvCFbO0gjk14A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -96,13 +96,7 @@
     /* Skip link accesibilidad */
     .skip-link { position:absolute;top:-100px;left:1rem;background:var(--rose);color:var(--bg);padding:.5rem 1rem;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;z-index:9999;transition:top .2s; }
     .skip-link:focus { top:1rem; }
-        /* ══ CURSOR (solo desktop) ══ */
-    @media (min-width: 1024px) {
-      * { cursor: none !important; }
-      #cur { pointer-events:none;position:fixed;z-index:9999;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--rose);transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s; }
-      #dot { pointer-events:none;position:fixed;z-index:9998;width:5px;height:5px;border-radius:50%;background:var(--rose-l);transform:translate(-50%,-50%);transition:transform .06s; }
-    }
-    @media (max-width: 1023px) { #cur, #dot { display: none; } }
+        /* cursor: default (sistema) */
 
     /* ══ PARTÍCULAS (solo desktop) ══ */
     #particles { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
@@ -712,7 +706,7 @@
       transition: background var(--ease);
       -webkit-tap-highlight-color: transparent;
     }
-    .popup-cta:hover { background: var(--rose-l); cursor: pointer !important; }
+    .popup-cta:hover { background: var(--rose-l); cursor: pointer; }
     .popup-cta:active { transform: scale(.98); }
 
     .popup-skip {
@@ -734,7 +728,7 @@
       color: var(--bg); font-size: 1.2rem; line-height: 1;
       opacity: .7; transition: opacity .2s;
     }
-    .popup-close:hover { opacity: 1; cursor: pointer !important; }
+    .popup-close:hover { opacity: 1; cursor: pointer; }
 
     @media (max-width: 480px) {
       .popup-title { font-size: 1.6rem; }
@@ -782,10 +776,6 @@
 
 <!-- PARTÍCULAS (desktop) -->
 <div id="particles"></div>
-
-<!-- CURSOR (desktop) -->
-<div id="cur"></div>
-<div id="dot"></div>
 
 <!-- LIGHTBOX -->
 <div class="lb" id="lb">
@@ -1182,14 +1172,6 @@
     }
   }
 
-  // ── CURSOR (solo desktop)
-  if (window.innerWidth >= 1024) {
-    const cur = document.getElementById('cur'), dot = document.getElementById('dot');
-    document.addEventListener('mousemove', e => {
-      cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
-      dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
-    });
-  }
 
   // ── NAV SCROLL
   const nav = document.getElementById('nav'), btt = document.getElementById('btt');
