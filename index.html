@@ -7,10 +7,45 @@
   <meta name="theme-color" content="#0e0c0b">
   <meta property="og:title" content="Salon Chic Marian · Estética Premium en Sueca">
   <meta property="og:description" content="Belleza de lujo en Sueca. Tratamientos con Tahesthetic, Skeyndor y Tahe.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://salonchicmarian.es">
+  <meta property="og:image" content="https://salonchicmarian.es/images/local-sala.jpg">
   <title>Salon Chic Marian · Estética en Sueca</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Salon Chic Marian",
+    "description": "Centro de estetica premium en Sueca. Rose Gold Sculpting, tratamientos faciales, manicura, depilacion laser y mas.",
+    "url": "https://salonchicmarian.es",
+    "telephone": "+34645875065",
+    "image": "https://salonchicmarian.es/images/local-sala.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "C/ Moro 30, 1 piso",
+      "addressLocality": "Sueca",
+      "addressRegion": "Valencia",
+      "postalCode": "46410",
+      "addressCountry": "ES"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:30", "closes": "19:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:30", "closes": "14:00" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/salonchicmarian/",
+      "https://www.facebook.com/salonchicmarian/"
+    ],
+    "priceRange": "EUR",
+    "currenciesAccepted": "EUR"
+  }
+  </script>
   <style>
     /* ═══════════════════════════════════════
        MOBILE-FIRST — base = móvil
@@ -26,7 +61,7 @@
       --rose-p:  #3a1f16;
       --white:   #f5f0ea;
       --white-d: #d8cfc4;
-      --muted:   #7a6e65;
+      --muted:   #9a8e85;
       --border:  rgba(196,132,106,.18);
       --fh:      'Playfair Display', serif;
       --fb:      'Raleway', sans-serif;
@@ -51,7 +86,10 @@
       font-size: 15px;
     }
 
-    /* ══ CURSOR (solo desktop) ══ */
+    /* Skip link accesibilidad */
+    .skip-link { position:absolute;top:-100px;left:1rem;background:var(--rose);color:var(--bg);padding:.5rem 1rem;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;z-index:9999;transition:top .2s; }
+    .skip-link:focus { top:1rem; }
+        /* ══ CURSOR (solo desktop) ══ */
     @media (min-width: 1024px) {
       * { cursor: none !important; }
       #cur { pointer-events:none;position:fixed;z-index:9999;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--rose);transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s; }
@@ -569,9 +607,17 @@
       .rev,.rev-l,.rev-r { opacity:1;transform:none;transition:none; }
       .particle { display:none; }
     }
+  
+    @media (prefers-reduced-motion: reduce) {
+      .rev,.rev-l,.rev-r { opacity:1;transform:none;transition:none; }
+      .particle { display:none; }
+      * { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    }
   </style>
 </head>
 <body>
+
+<a href="#main" class="skip-link">Saltar al contenido</a>
 
 <!-- PARTÍCULAS (desktop) -->
 <div id="particles"></div>
@@ -588,7 +634,8 @@
   <button class="lb-btn lb-next" id="lb-next">›</button>
 </div>
 
-<!-- NAV -->
+<main id="main">
+<!-- NAV (fuera del main) -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">Salon Chic <span>Marian</span></a>
   <ul class="nav-links" id="nl">
@@ -604,7 +651,7 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-img">
-    <img src="images/local-sala.jpg" alt="Salon Chic Marian" loading="eager">
+    <img src="images/local-sala.jpg" alt="Interior de Salon Chic Marian en Sueca" loading="eager" fetchpriority="high" width="800" height="600">
     <div class="hero-img-overlay"></div>
     <div class="hero-tag">
       <span>Tratamiento estrella</span>
@@ -616,11 +663,11 @@
     <h1 class="hero-h">Belleza que<br>habla por<br><em>sí sola.</em></h1>
     <p class="hero-sub">Tratamientos profesionales de última generación. Tu piel merece lo mejor.</p>
     <div class="hero-btns">
-      <a href="https://wa.me/34645875065?text=Hola%20Marian%2C%20quiero%20reservar%20una%20cita" class="btn-filled" target="_blank">
-        <i class="fab fa-whatsapp"></i> Reservar cita
+      <a href="https://wa.me/34645875065?text=Hola%20Marian%2C%20quiero%20reservar%20una%20cita" class="btn-filled" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i> Reservar cita
       </a>
       <a href="#servicios" class="btn-ghost">
-        Ver servicios <i class="fas fa-arrow-right"></i>
+        Ver servicios <i class="fas fa-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
     <div class="hero-stats">
@@ -651,42 +698,42 @@
     <div class="srv-grid">
       <div class="srv-item rev">
         <div class="srv-num-bg">01</div>
-        <div class="srv-item-icon"><i class="fas fa-leaf"></i></div>
+        <div class="srv-item-icon"><i class="fas fa-leaf" aria-hidden="true"></i></div>
         <div class="srv-item-body"><h3>Tratamientos Faciales</h3><p>Rose Gold Ritual Antiedad, Repair Treatment, hidratación y limpieza profunda.</p></div>
       </div>
       <div class="srv-item rev">
         <div class="srv-num-bg">02</div>
-        <div class="srv-item-icon"><i class="fas fa-spa"></i></div>
+        <div class="srv-item-icon"><i class="fas fa-spa" aria-hidden="true"></i></div>
         <div class="srv-item-body"><h3>Rose Gold Sculpting</h3><p>Anticelulítico con oro coloidal. 85% de resultados visibles desde las primeras sesiones.</p></div>
       </div>
       <div class="srv-item rev">
         <div class="srv-num-bg">03</div>
-        <div class="srv-item-icon"><i class="fas fa-hand-sparkles"></i></div>
+        <div class="srv-item-icon"><i class="fas fa-hand-sparkles" aria-hidden="true"></i></div>
         <div class="srv-item-body"><h3>Manicura & Pedicura</h3><p>Semipermanente, clásica, nail art y pedicura spa. Amplia variedad de estilos.</p></div>
       </div>
       <div class="srv-item rev">
         <div class="srv-num-bg">04</div>
-        <div class="srv-item-icon"><i class="fas fa-bolt"></i></div>
+        <div class="srv-item-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
         <div class="srv-item-body"><h3>Depilación Láser</h3><p>Fotodepilación definitiva Tahe Laser. Oferta 2×1 en zonas de igual importe.</p></div>
       </div>
       <div class="srv-item rev">
         <div class="srv-num-bg">05</div>
-        <div class="srv-item-icon"><i class="fas fa-wind"></i></div>
+        <div class="srv-item-icon"><i class="fas fa-wind" aria-hidden="true"></i></div>
         <div class="srv-item-body"><h3>Radiofrecuencia</h3><p>Elimina arrugas y flacidez estimulando la producción natural de colágeno.</p></div>
       </div>
       <div class="srv-item rev">
         <div class="srv-num-bg">06</div>
-        <div class="srv-item-icon"><i class="fas fa-eye"></i></div>
+        <div class="srv-item-icon"><i class="fas fa-eye" aria-hidden="true"></i></div>
         <div class="srv-item-body"><h3>Pestañas & Cejas</h3><p>Extensiones, lifting, tinte y diseño con Thuya Brow Intensifier.</p></div>
       </div>
       <div class="srv-item rev">
         <div class="srv-num-bg">07</div>
-        <div class="srv-item-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+        <div class="srv-item-icon"><i class="fas fa-compress-arrows-alt" aria-hidden="true"></i></div>
         <div class="srv-item-body"><h3>Presoterapia</h3><p>Drenaje linfático, mejora circulación y relajación muscular profunda.</p></div>
       </div>
       <div class="srv-item rev">
         <div class="srv-num-bg">08</div>
-        <div class="srv-item-icon"><i class="fas fa-paint-brush"></i></div>
+        <div class="srv-item-icon"><i class="fas fa-paint-brush" aria-hidden="true"></i></div>
         <div class="srv-item-body"><h3>Maquillaje</h3><p>Profesional para eventos, bodas y ocasiones especiales.</p></div>
       </div>
     </div>
@@ -704,18 +751,18 @@
   </div>
   <div class="gallery-scroll-wrap">
     <div class="gallery-track rev">
-      <div class="gi" data-src="images/facial-tratamiento.jpg" data-lbl="Tratamiento Facial"><img src="images/facial-tratamiento.jpg" alt="Tratamiento facial" loading="lazy"><div class="gi-overlay"><span>Tratamiento Facial</span></div></div>
-      <div class="gi" data-src="images/rose-gold-sculpting.jpg" data-lbl="Rose Gold Sculpting"><img src="images/rose-gold-sculpting.jpg" alt="Rose Gold Sculpting" loading="lazy"><div class="gi-overlay"><span>Rose Gold Sculpting</span></div></div>
-      <div class="gi" data-src="images/manicura-french.jpg" data-lbl="Manicura Francesa"><img src="images/manicura-french.jpg" alt="Manicura francesa" loading="lazy"><div class="gi-overlay"><span>Manicura Francesa</span></div></div>
-      <div class="gi" data-src="images/nail-art-colores.jpg" data-lbl="Nail Art Verano"><img src="images/nail-art-colores.jpg" alt="Nail art" loading="lazy"><div class="gi-overlay"><span>Nail Art Verano</span></div></div>
-      <div class="gi" data-src="images/pestanas-extensiones.jpg" data-lbl="Extensiones de Pestañas"><img src="images/pestanas-extensiones.jpg" alt="Extensiones pestañas" loading="lazy"><div class="gi-overlay"><span>Extensiones Pestañas</span></div></div>
-      <div class="gi" data-src="images/manicura-rosa.jpg" data-lbl="Manicura Rosa Mandala"><img src="images/manicura-rosa.jpg" alt="Manicura rosa" loading="lazy"><div class="gi-overlay"><span>Manicura Rosa</span></div></div>
-      <div class="gi" data-src="images/presoterapia.jpg" data-lbl="Presoterapia"><img src="images/presoterapia.jpg" alt="Presoterapia" loading="lazy"><div class="gi-overlay"><span>Presoterapia</span></div></div>
-      <div class="gi" data-src="images/manicura-azul.jpg" data-lbl="Manicura Azul Marble"><img src="images/manicura-azul.jpg" alt="Manicura azul" loading="lazy"><div class="gi-overlay"><span>Manicura Azul Marble</span></div></div>
-      <div class="gi" data-src="images/local-recepcion.jpg" data-lbl="Nuestro Salón"><img src="images/local-recepcion.jpg" alt="Interior salón" loading="lazy"><div class="gi-overlay"><span>Nuestro Salón</span></div></div>
+      <div class="gi" data-src="images/facial-tratamiento.jpg" data-lbl="Tratamiento Facial"><img src="images/facial-tratamiento.jpg" alt="Tratamiento facial con masaje Rose Gold en Salon Chic Marian" loading="lazy" width="600" height="400"><div class="gi-overlay"><span>Tratamiento Facial</span></div></div>
+      <div class="gi" data-src="images/rose-gold-sculpting.jpg" data-lbl="Rose Gold Sculpting"><img src="images/rose-gold-sculpting.jpg" alt="Rose Gold Sculpting, tratamiento anticelulítico corporal en Sueca" loading="lazy" width="600" height="400"><div class="gi-overlay"><span>Rose Gold Sculpting</span></div></div>
+      <div class="gi" data-src="images/manicura-french.jpg" data-lbl="Manicura Francesa"><img src="images/manicura-french.jpg" alt="Manicura francesa semipermanente con nail art en Salon Chic Marian" loading="lazy" width="600" height="400"><div class="gi-overlay"><span>Manicura Francesa</span></div></div>
+      <div class="gi" data-src="images/nail-art-colores.jpg" data-lbl="Nail Art Verano"><img src="images/nail-art-colores.jpg" alt="Nail art" loading="lazy" width="600" height="400"><div class="gi-overlay"><span>Nail Art Verano</span></div></div>
+      <div class="gi" data-src="images/pestanas-extensiones.jpg" data-lbl="Extensiones de Pestañas"><img src="images/pestanas-extensiones.jpg" alt="Extensiones de pestañas profesionales en Salon Chic Marian Sueca" loading="lazy" width="600" height="400"><div class="gi-overlay"><span>Extensiones Pestañas</span></div></div>
+      <div class="gi" data-src="images/manicura-rosa.jpg" data-lbl="Manicura Rosa Mandala"><img src="images/manicura-rosa.jpg" alt="Manicura semipermanente rosa con diseño mandala en Sueca" loading="lazy" width="600" height="400"><div class="gi-overlay"><span>Manicura Rosa</span></div></div>
+      <div class="gi" data-src="images/presoterapia.jpg" data-lbl="Presoterapia"><img src="images/presoterapia.jpg" alt="Sesión de presoterapia profesional para drenaje linfático en Salon Chic Marian" loading="lazy" width="600" height="400"><div class="gi-overlay"><span>Presoterapia</span></div></div>
+      <div class="gi" data-src="images/manicura-azul.jpg" data-lbl="Manicura Azul Marble"><img src="images/manicura-azul.jpg" alt="Manicura azul marino con efecto marble en Salon Chic Marian" loading="lazy" width="600" height="400"><div class="gi-overlay"><span>Manicura Azul Marble</span></div></div>
+      <div class="gi" data-src="images/local-recepcion.jpg" data-lbl="Nuestro Salón"><img src="images/local-recepcion.jpg" alt="Interior de Salon Chic Marian con zona de recepción en Sueca" loading="lazy" width="600" height="400"><div class="gi-overlay"><span>Nuestro Salón</span></div></div>
     </div>
   </div>
-  <p class="gallery-hint rev"><i class="fas fa-chevron-left"></i> desliza para ver más <i class="fas fa-chevron-right"></i></p>
+  <p class="gallery-hint rev"><i class="fas fa-chevron-left" aria-hidden="true"></i> desliza para ver más <i class="fas fa-chevron-right" aria-hidden="true"></i></p>
 </section>
 
 <!-- PRECIOS -->
@@ -730,8 +777,8 @@
 
       <div class="pacc-item open">
         <div class="pacc-header">
-          <div class="pacc-header-left"><i class="fas fa-hand-sparkles"></i><h3>Manos & Pies</h3></div>
-          <i class="fas fa-chevron-down pacc-arrow"></i>
+          <div class="pacc-header-left"><i class="fas fa-hand-sparkles" aria-hidden="true"></i><h3>Manos & Pies</h3></div>
+          <i class="fas fa-chevron-down pacc-arrow" aria-hidden="true"></i>
         </div>
         <div class="pacc-body">
           <div class="price-row"><span class="pn">Manicura básica</span><span class="pv">16 €</span></div>
@@ -744,8 +791,8 @@
 
       <div class="pacc-item">
         <div class="pacc-header">
-          <div class="pacc-header-left"><i class="fas fa-spa"></i><h3>Corporal</h3></div>
-          <i class="fas fa-chevron-down pacc-arrow"></i>
+          <div class="pacc-header-left"><i class="fas fa-spa" aria-hidden="true"></i><h3>Corporal</h3></div>
+          <i class="fas fa-chevron-down pacc-arrow" aria-hidden="true"></i>
         </div>
         <div class="pacc-body">
           <div class="price-row"><span class="pn">Core Fit <small>Por sesión</small></span><span class="pv">55 €</span></div>
@@ -755,8 +802,8 @@
 
       <div class="pacc-item">
         <div class="pacc-header">
-          <div class="pacc-header-left"><i class="fas fa-leaf"></i><h3>Facial & Belleza</h3></div>
-          <i class="fas fa-chevron-down pacc-arrow"></i>
+          <div class="pacc-header-left"><i class="fas fa-leaf" aria-hidden="true"></i><h3>Facial & Belleza</h3></div>
+          <i class="fas fa-chevron-down pacc-arrow" aria-hidden="true"></i>
         </div>
         <div class="pacc-body">
           <div class="price-row"><span class="pn">Facial básico</span><span class="pv">30 €</span></div>
@@ -770,8 +817,8 @@
 
       <div class="pacc-item">
         <div class="pacc-header">
-          <div class="pacc-header-left"><i class="fas fa-eye"></i><h3>Microblading Cejas</h3></div>
-          <i class="fas fa-chevron-down pacc-arrow"></i>
+          <div class="pacc-header-left"><i class="fas fa-eye" aria-hidden="true"></i><h3>Microblading Cejas</h3></div>
+          <i class="fas fa-chevron-down pacc-arrow" aria-hidden="true"></i>
         </div>
         <div class="pacc-body">
           <div class="price-row"><span class="pn">Diseño perfecto <small>Repaso incluido</small></span><span class="pv">125 €</span></div>
@@ -780,8 +827,8 @@
 
       <div class="pacc-item">
         <div class="pacc-header">
-          <div class="pacc-header-left"><i class="fas fa-paint-brush"></i><h3>Maquillaje</h3></div>
-          <i class="fas fa-chevron-down pacc-arrow"></i>
+          <div class="pacc-header-left"><i class="fas fa-paint-brush" aria-hidden="true"></i><h3>Maquillaje</h3></div>
+          <i class="fas fa-chevron-down pacc-arrow" aria-hidden="true"></i>
         </div>
         <div class="pacc-body">
           <div class="price-row"><span class="pn">Maquillaje eventos</span><span class="pv">30 €</span></div>
@@ -793,8 +840,8 @@
 
       <div class="pacc-item combo">
         <div class="pacc-header">
-          <div class="pacc-header-left"><i class="fas fa-gem"></i><h3>Combos Recomendados</h3></div>
-          <i class="fas fa-chevron-down pacc-arrow"></i>
+          <div class="pacc-header-left"><i class="fas fa-gem" aria-hidden="true"></i><h3>Combos Recomendados</h3></div>
+          <i class="fas fa-chevron-down pacc-arrow" aria-hidden="true"></i>
         </div>
         <div class="pacc-body">
           <div class="price-row"><span class="pn">Pack 3 sesiones facial</span><span class="pv">85 €</span></div>
@@ -806,7 +853,7 @@
     </div>
     <p class="price-note rev">
       Precios orientativos. Consulta ofertas puntuales en
-      <a href="https://wa.me/34645875065?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20precios" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://wa.me/34645875065?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20precios" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
     </p>
   </div>
 </section>
@@ -817,7 +864,7 @@
     <div class="nos-wrap">
       <div class="nos-img-wrap rev-l">
         <div class="nos-frame"></div>
-        <div class="nos-img"><img src="images/local-recepcion.jpg" alt="Salon Chic Marian interior" loading="lazy"></div>
+        <div class="nos-img"><img src="images/local-recepcion.jpg" alt="Salon Chic Marian interior" loading="lazy" width="600" height="400"></div>
         <div class="nos-badge"><span class="nb">10+</span><span class="nl">años en Sueca</span></div>
       </div>
       <div class="rev-r">
@@ -825,14 +872,14 @@
         <h2 class="sec-title">Más de una década<br>cuidando tu <em>belleza</em></h2>
         <p class="sec-sub" style="margin-bottom:1.5rem">En Salon Chic Marian llevamos más de una década en Sueca. Trabajamos con Tahesthetic, Skeyndor, Tahe y Thuya y nos formamos continuamente para ofrecerte siempre lo mejor.</p>
         <ul class="nos-list">
-          <li><i class="fas fa-circle"></i> Productos de primeras marcas profesionales</li>
-          <li><i class="fas fa-circle"></i> Atención completamente personalizada</li>
-          <li><i class="fas fa-circle"></i> Técnicas actualizadas y formación continua</li>
-          <li><i class="fas fa-circle"></i> Ambiente exclusivo y de total confianza</li>
-          <li><i class="fas fa-circle"></i> Resultados visibles desde la primera sesión</li>
+          <li><i class="fas fa-circle" aria-hidden="true"></i> Productos de primeras marcas profesionales</li>
+          <li><i class="fas fa-circle" aria-hidden="true"></i> Atención completamente personalizada</li>
+          <li><i class="fas fa-circle" aria-hidden="true"></i> Técnicas actualizadas y formación continua</li>
+          <li><i class="fas fa-circle" aria-hidden="true"></i> Ambiente exclusivo y de total confianza</li>
+          <li><i class="fas fa-circle" aria-hidden="true"></i> Resultados visibles desde la primera sesión</li>
         </ul>
-        <a href="https://wa.me/34645875065" class="btn-filled" target="_blank" style="display:inline-flex">
-          <i class="fab fa-whatsapp"></i> Habla con Marian
+        <a href="https://wa.me/34645875065" class="btn-filled" target="_blank" rel="noopener noreferrer" style="display:inline-flex">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> Habla con Marian
         </a>
       </div>
     </div>
@@ -879,19 +926,19 @@
     <div class="ct-grid">
       <div class="ct-info rev-l">
         <div class="ct-item">
-          <div class="ct-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="ct-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
           <div class="ct-text"><strong>Dirección</strong><span>C/ Moro 30, 1º piso<br>Sueca, Valencia</span></div>
         </div>
         <div class="ct-item">
-          <div class="ct-icon"><i class="fas fa-phone"></i></div>
+          <div class="ct-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
           <div class="ct-text"><strong>Teléfono</strong><a href="tel:+34645875065">645 875 065</a></div>
         </div>
         <div class="ct-item">
-          <div class="ct-icon"><i class="fab fa-whatsapp"></i></div>
-          <div class="ct-text"><strong>WhatsApp</strong><a href="https://wa.me/34645875065" target="_blank">Escríbenos directamente</a></div>
+          <div class="ct-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+          <div class="ct-text"><strong>WhatsApp</strong><a href="https://wa.me/34645875065" target="_blank" rel="noopener noreferrer">Escríbenos directamente</a></div>
         </div>
         <div class="ct-item">
-          <div class="ct-icon"><i class="fas fa-clock"></i></div>
+          <div class="ct-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
           <div class="ct-text">
             <strong>Horario</strong>
             <div class="hor">
@@ -907,12 +954,12 @@
         <p class="fd-sub">Respondemos en menos de 24 horas</p>
         <form action="https://formspree.io/f/XXXXXXXX" method="POST">
           <div class="frow">
-            <div class="fg"><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre" required autocomplete="given-name"></div>
-            <div class="fg"><label>Teléfono</label><input type="tel" name="telefono" placeholder="6XX XXX XXX" required autocomplete="tel"></div>
+            <div class="fg"><label for="f-nombre">Nombre</label><input type="text" id="f-nombre" name="nombre" placeholder="Tu nombre" required autocomplete="given-name"></div>
+            <div class="fg"><label for="f-telefono">Teléfono</label><input type="tel" id="f-telefono" name="telefono" placeholder="6XX XXX XXX" required autocomplete="tel"></div>
           </div>
           <div class="fg">
-            <label>Servicio</label>
-            <select name="servicio">
+            <label for="f-servicio">Servicio</label>
+            <select id="f-servicio" name="servicio">
               <option value="">Selecciona un servicio…</option>
               <option>Tratamiento facial</option>
               <option>Rose Gold Sculpting</option>
@@ -927,8 +974,8 @@
               <option>Otro / Consultar</option>
             </select>
           </div>
-          <div class="fg"><label>Mensaje (opcional)</label><textarea name="mensaje" placeholder="Cuéntanos qué necesitas o cuándo prefieres tu cita…"></textarea></div>
-          <button type="submit" class="fsub"><i class="fas fa-paper-plane"></i> &nbsp;Enviar solicitud</button>
+          <div class="fg"><label for="f-mensaje">Mensaje (opcional)</label><textarea id="f-mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas o cuándo prefieres tu cita…"></textarea></div>
+          <button type="submit" class="fsub"><i class="fas fa-paper-plane" aria-hidden="true"></i> &nbsp;Enviar solicitud</button>
         </form>
       </div>
     </div>
@@ -940,6 +987,7 @@
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1544!2d-0.3149!3d39.2022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQy8gTW9ybyAzMCwgU3VlY2E!5e0!3m2!1ses!2ses!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Salon Chic Marian — Sueca"></iframe>
 </div>
 
+</main>
 <!-- FOOTER -->
 <footer>
   <div class="fi">
@@ -947,16 +995,16 @@
     <div class="f-line"></div>
     <p class="f-tag">Centro de estética · Sueca, Valencia</p>
     <div class="f-soc">
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/34645875065" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/salonchicmarian/" aria-label="Instagram de Salon Chic Marian" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+      <a href="https://wa.me/34645875065" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/salonchicmarian/" aria-label="Facebook de Salon Chic Marian" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
     </div>
     <p class="f-copy">© 2025 Salon Chic Marian · C/ Moro 30, 1º piso, Sueca · 645 875 065</p>
   </div>
 </footer>
 
-<a href="https://wa.me/34645875065?text=Hola%20Marian%2C%20quiero%20reservar%20una%20cita" class="waf" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-<button class="btt" id="btt" aria-label="Volver arriba"><i class="fas fa-chevron-up"></i></button>
+<a href="https://wa.me/34645875065?text=Hola%20Marian%2C%20quiero%20reservar%20una%20cita" class="waf" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+<button class="btt" id="btt" aria-label="Volver arriba"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
 
 <script>
   // ── PARTÍCULAS (solo desktop)
