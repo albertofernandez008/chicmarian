@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://salonchicmarian.es/sitemap.xml
+Sitemap: https://albertofernandez008.github.io/chicmarian/sitemap.xml
