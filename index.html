@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Salon Chic Marian — Centro de estética premium en Sueca. Rose Gold Sculpting, tratamientos faciales, manicura y depilación láser. Reserva tu cita.">
   <meta name="theme-color" content="#0e0c0b">
+  <link rel="canonical" href="https://salonchicmarian.es">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
   <meta property="og:title" content="Salon Chic Marian · Estética Premium en Sueca">
   <meta property="og:description" content="Belleza de lujo en Sueca. Tratamientos con Tahesthetic, Skeyndor y Tahe.">
   <meta property="og:type" content="website">
@@ -12,11 +15,12 @@
   <meta property="og:image" content="https://salonchicmarian.es/images/local-sala.jpg">
   <title>Salon Chic Marian · Estética en Sueca</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+  <link rel="preload" href="images/local-sala.jpg" as="image" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plh7eqjy08VEB9MHoFvCFbO0gjk14A==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -613,11 +617,165 @@
       .particle { display:none; }
       * { animation-duration:.01ms !important; transition-duration:.01ms !important; }
     }
+  
+    /* ══ POPUP OFERTA ══ */
+    .popup-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(14,12,11,.85);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .4s ease;
+    }
+    .popup-overlay.on { opacity: 1; pointer-events: all; }
+
+    .popup-box {
+      background: var(--bg2);
+      border: 1px solid rgba(196,132,106,.35);
+      max-width: 420px; width: 100%;
+      position: relative;
+      transform: translateY(24px) scale(.97);
+      transition: transform .4s cubic-bezier(.2,.8,.2,1);
+      overflow: hidden;
+    }
+    .popup-overlay.on .popup-box { transform: translateY(0) scale(1); }
+
+    .popup-top {
+      background: var(--rose);
+      padding: .5rem 1rem;
+      display: flex; align-items: center; justify-content: center; gap: .6rem;
+    }
+    .popup-top span {
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--bg);
+    }
+    .popup-top i { font-size: .75rem; color: var(--bg); }
+
+    .popup-body { padding: 2rem 2rem 1.5rem; text-align: center; }
+
+    .popup-badge {
+      display: inline-block;
+      border: 1px solid rgba(196,132,106,.4);
+      color: var(--rose);
+      font-size: .62rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      padding: .3rem 1rem; margin-bottom: 1.2rem;
+    }
+
+    .popup-title {
+      font-family: var(--fh);
+      font-size: 2rem; font-weight: 400;
+      color: var(--white); line-height: 1.1;
+      margin-bottom: .5rem;
+    }
+    .popup-title em { font-style: italic; color: var(--rose); }
+
+    .popup-2x1 {
+      display: flex; align-items: center; justify-content: center; gap: 0;
+      margin: 1.2rem 0;
+    }
+    .popup-2x1 .n {
+      font-family: var(--fh);
+      font-size: 5rem; font-weight: 400; line-height: 1;
+      color: var(--rose);
+    }
+    .popup-2x1 .x {
+      font-size: 2rem; color: var(--muted);
+      padding: 0 .3rem; align-self: center;
+    }
+    .popup-2x1 .n2 {
+      font-family: var(--fh);
+      font-size: 5rem; font-weight: 400; line-height: 1;
+      color: var(--white-d);
+    }
+
+    .popup-desc {
+      font-size: .82rem; color: var(--muted);
+      line-height: 1.7; margin-bottom: 1.5rem;
+    }
+    .popup-desc strong { color: var(--white-d); font-weight: 500; }
+
+    .popup-cta {
+      display: flex; align-items: center; justify-content: center; gap: .6rem;
+      width: 100%; padding: 1rem;
+      background: var(--rose); color: var(--bg);
+      border: none; font-family: var(--fb);
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .popup-cta:hover { background: var(--rose-l); cursor: pointer !important; }
+    .popup-cta:active { transform: scale(.98); }
+
+    .popup-skip {
+      display: block; text-align: center;
+      font-size: .7rem; color: var(--muted);
+      padding: .9rem;
+      border-top: 1px solid var(--border);
+      cursor: pointer !important;
+      transition: color var(--ease);
+      background: none; border-left: none; border-right: none; border-bottom: none;
+      width: 100%; font-family: var(--fb);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .popup-skip:hover { color: var(--white-d); }
+
+    .popup-close {
+      position: absolute; top: .6rem; right: .8rem;
+      background: none; border: none;
+      color: var(--bg); font-size: 1.2rem; line-height: 1;
+      opacity: .7; transition: opacity .2s;
+    }
+    .popup-close:hover { opacity: 1; cursor: pointer !important; }
+
+    @media (max-width: 480px) {
+      .popup-title { font-size: 1.6rem; }
+      .popup-2x1 .n, .popup-2x1 .n2 { font-size: 4rem; }
+      .popup-body { padding: 1.5rem 1.2rem 1rem; }
+    }
+
   </style>
 </head>
 <body>
 
 <a href="#main" class="skip-link">Saltar al contenido</a>
+
+
+<!-- ══ POPUP OFERTA 2×1 ══ -->
+<div class="popup-overlay" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-titulo">
+  <div class="popup-box">
+    <div class="popup-top">
+      <i class="fas fa-bolt" aria-hidden="true"></i>
+      <span>Oferta exclusiva · Tiempo limitado</span>
+      <button class="popup-close" id="popup-close" aria-label="Cerrar oferta">×</button>
+    </div>
+    <div class="popup-body">
+      <div class="popup-badge">Depilación láser</div>
+      <h2 class="popup-title" id="popup-titulo">
+        Compra una zona<br>y te <em>regalamos</em> otra
+      </h2>
+      <div class="popup-2x1">
+        <span class="n">2</span>
+        <span class="x">×</span>
+        <span class="n2">1</span>
+      </div>
+      <p class="popup-desc">
+        Válido durante <strong>15 días</strong> desde la reserva.<br>
+        La zona regalada debe ser de <strong>igual o menor importe</strong>.
+      </p>
+      <a href="https://wa.me/34645875065?text=Hola%20Marian%2C%20me%20gustar%C3%ADa%20aprovechar%20la%20oferta%202%C3%971%20de%20depilaci%C3%B3n%20l%C3%A1ser%20%F0%9F%99%8C"
+         class="popup-cta" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i> Quiero esta oferta
+      </a>
+    </div>
+    <button class="popup-skip" id="popup-skip">No me interesa, seguir navegando</button>
+  </div>
+</div>
 
 <!-- PARTÍCULAS (desktop) -->
 <div id="particles"></div>
@@ -630,7 +788,7 @@
 <div class="lb" id="lb">
   <button class="lb-x" id="lb-x">×</button>
   <button class="lb-btn lb-prev" id="lb-prev">‹</button>
-  <img src="" alt="" id="lb-img">
+  <img src="" alt="" id="lb-img" aria-live="polite">
   <button class="lb-btn lb-next" id="lb-next">›</button>
 </div>
 
@@ -785,6 +943,7 @@
           <div class="price-row"><span class="pn">Pedicura básica</span><span class="pv">19 €</span></div>
           <div class="price-row"><span class="pn">Manicura semipermanente</span><span class="pv">20 €</span></div>
           <div class="price-row"><span class="pn">Pedicura semipermanente</span><span class="pv">25 €</span></div>
+          <div class="price-row"><span class="pn">Completa <small>Próximamente</small></span><span class="pv" style="color:var(--muted);font-size:.85rem">— €</span></div>
         </div>
       </div>
 
@@ -1006,6 +1165,7 @@
 <button class="btt" id="btt" aria-label="Volver arriba"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
 
 <script>
+  document.addEventListener("DOMContentLoaded", function() {
   // ── PARTÍCULAS (solo desktop)
   if (window.innerWidth >= 1024) {
     const pc = document.getElementById('particles');
@@ -1092,6 +1252,64 @@
     const diff = tsX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) moveLB(diff > 0 ? 1 : -1);
   });
+
+  // ══ POPUP OFERTA
+  (function() {
+    const overlay = document.getElementById('popup');
+    const closeBtn = document.getElementById('popup-close');
+    const skipBtn  = document.getElementById('popup-skip');
+
+    // No mostrar si ya se cerró en esta sesión
+    if (sessionStorage.getItem('popup-closed')) return;
+
+    function openPopup() {
+      overlay.classList.add('on');
+      document.body.style.overflow = 'hidden';
+      // Focus trap accesibilidad
+      overlay.querySelector('.popup-cta').focus();
+    }
+
+    function closePopup() {
+      overlay.classList.remove('on');
+      document.body.style.overflow = '';
+      sessionStorage.setItem('popup-closed', '1');
+    }
+
+    // Abrir a los 3 segundos
+    setTimeout(openPopup, 3000);
+
+    closeBtn.addEventListener('click', closePopup);
+    skipBtn.addEventListener('click', closePopup);
+
+    // Cerrar al hacer clic fuera
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closePopup();
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('on')) closePopup();
+    });
+
+    // Focus trap dentro del popup
+    overlay.addEventListener('keydown', function(e) {
+      if (e.key !== 'Tab') return;
+      const focusable = overlay.querySelectorAll('a, button');
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    });
+  })();
+
+  }); // end DOMContentLoaded
+
+  // ── ERROR HANDLER GLOBAL
+  window.onerror = function(msg, src, line) { return true; };
+  window.addEventListener('unhandledrejection', function(e) { e.preventDefault(); });
+
 </script>
 </body>
 </html>
