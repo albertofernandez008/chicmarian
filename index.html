@@ -21,6 +21,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- ══ SIMPLYBOOK WIDGET ══ -->
+  <script src="//widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var widget = new SimplybookWidget({
+      "widget_type": "button",
+      "url": "https://albertomarian.simplybook.it",
+      "theme": "skittish",
+      "theme_settings": {
+        "timeline_hide_unavailable": "1",
+        "hide_past_days": "0",
+        "timeline_show_end_time": "0",
+        "timeline_modern_display": "as_slots",
+        "sb_base_color": "#d4547a",
+        "display_item_mode": "block",
+        "body_bg_color": "#ffffff",
+        "sb_review_image": "",
+        "dark_font_color": "#2d2d44",
+        "light_font_color": "#ffffff",
+        "btn_color_1": "#e07098",
+        "sb_company_label_color": "#6b6680",
+        "hide_img_mode": "0",
+        "sb_busy": "#f0c0cc",
+        "sb_available": "#d1f0e8"
+      },
+      "timeline": "modern",
+      "datepicker": "top_calendar",
+      "is_rtl": false,
+      "app_config": {
+        "clear_session": 0,
+        "allow_switch_to_ada": 0,
+        "predefined": []
+      },
+      "button_title": "Reservar cita",
+      "button_background_color": "#d4547a",
+      "button_text_color": "#ffffff",
+      "button_position": "right",
+      "button_position_offset": "55%"
+    });
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1358,9 +1397,20 @@
   // ── ABRIR SIMPLYBOOK DESDE BOTONES PROPIOS
   function abrirReserva(e) {
     if (e) e.preventDefault();
-    if (typeof widget !== 'undefined' && widget.open) {
-      widget.open();
+    // Intentar abrir el widget — con reintentos si aún no está listo
+    var intentos = 0;
+    function intentarAbrir() {
+      if (typeof widget !== 'undefined' && typeof widget.open === 'function') {
+        widget.open();
+      } else if (intentos < 20) {
+        intentos++;
+        setTimeout(intentarAbrir, 200);
+      } else {
+        // Fallback: abrir SimplyBook directamente en nueva pestaña
+        window.open('https://albertomarian.simplybook.it', '_blank', 'noopener,noreferrer');
+      }
     }
+    intentarAbrir();
   }
 
   }); // end DOMContentLoaded
@@ -1371,45 +1421,6 @@
 
 </script>
 
-  <!-- ══ SIMPLYBOOK WIDGET ══ -->
-  <script src="//widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    var widget = new SimplybookWidget({
-      "widget_type": "button",
-      "url": "https://albertomarian.simplybook.it",
-      "theme": "skittish",
-      "theme_settings": {
-        "timeline_hide_unavailable": "1",
-        "hide_past_days": "0",
-        "timeline_show_end_time": "0",
-        "timeline_modern_display": "as_slots",
-        "sb_base_color": "#d4547a",
-        "display_item_mode": "block",
-        "body_bg_color": "#ffffff",
-        "sb_review_image": "",
-        "dark_font_color": "#2d2d44",
-        "light_font_color": "#ffffff",
-        "btn_color_1": "#e07098",
-        "sb_company_label_color": "#6b6680",
-        "hide_img_mode": "0",
-        "sb_busy": "#f0c0cc",
-        "sb_available": "#d1f0e8"
-      },
-      "timeline": "modern",
-      "datepicker": "top_calendar",
-      "is_rtl": false,
-      "app_config": {
-        "clear_session": 0,
-        "allow_switch_to_ada": 0,
-        "predefined": []
-      },
-      "button_title": "Reservar cita",
-      "button_background_color": "#d4547a",
-      "button_text_color": "#ffffff",
-      "button_position": "right",
-      "button_position_offset": "55%"
-    });
-  </script>
 
 </body>
 </html>
