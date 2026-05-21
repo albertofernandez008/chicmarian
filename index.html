@@ -748,6 +748,56 @@
     .sec-title { font-size: clamp(1.9rem, 4vw, 2.8rem); }
     .nos-list li { font-size: .9rem; }
 
+  
+    /* ══ RESERVA BOX (reemplaza formulario) ══ */
+    .reserva-box {
+      background: var(--rose-p);
+      border: 1.5px solid rgba(212,84,122,.22);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+    }
+    .reserva-box h3 {
+      font-family: var(--fh);
+      font-size: 1.6rem; font-weight: 400;
+      color: var(--white-d); margin-bottom: .4rem;
+    }
+    .reserva-box .fd-sub {
+      font-size: .85rem; color: var(--muted);
+      margin-bottom: 2rem; line-height: 1.75;
+    }
+    .reserva-features {
+      display: flex; flex-direction: column; gap: .9rem;
+      margin-bottom: 2rem;
+    }
+    .rf-item {
+      display: flex; align-items: center; gap: .9rem;
+      font-size: .88rem; color: var(--white-d);
+    }
+    .rf-item i {
+      width: 34px; height: 34px; flex-shrink: 0;
+      background: var(--rose); color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .78rem;
+    }
+    .reserva-btn-grande {
+      width: 100%; padding: 1.1rem;
+      font-size: .88rem; justify-content: center;
+      border-radius: 50px;
+      box-shadow: 0 6px 24px rgba(212,84,122,.3);
+      margin-bottom: 1.2rem;
+      border: none;
+    }
+    .reserva-wa {
+      text-align: center;
+      font-size: .8rem; color: var(--muted);
+    }
+    .reserva-wa a {
+      color: var(--rose); text-decoration: none;
+      font-weight: 500;
+    }
+    .reserva-wa a:hover { text-decoration: underline; }
+
   </style>
 </head>
 <body>
@@ -1113,34 +1163,36 @@
           </div>
         </div>
       </div>
-      <div class="form-dark rev-r">
-        <h3>Solicita tu cita</h3>
-        <p class="fd-sub">Respondemos en menos de 24 horas</p>
-        <form action="https://formspree.io/f/XXXXXXXX" method="POST">
-          <div class="frow">
-            <div class="fg"><label for="f-nombre">Nombre</label><input type="text" id="f-nombre" name="nombre" placeholder="Tu nombre" required autocomplete="given-name"></div>
-            <div class="fg"><label for="f-telefono">Teléfono</label><input type="tel" id="f-telefono" name="telefono" placeholder="6XX XXX XXX" required autocomplete="tel"></div>
+      <div class="reserva-box rev-r">
+        <h3>Reserva tu cita</h3>
+        <p class="fd-sub">Elige el servicio, el día y la hora que mejor te venga. Recibirás confirmación y recordatorio automático.</p>
+
+        <div class="reserva-features">
+          <div class="rf-item">
+            <i class="far fa-calendar-check" aria-hidden="true"></i>
+            <span>Elige día y hora disponible</span>
           </div>
-          <div class="fg">
-            <label for="f-servicio">Servicio</label>
-            <select id="f-servicio" name="servicio">
-              <option value="">Selecciona un servicio…</option>
-              <option>Tratamiento facial</option>
-              <option>Rose Gold Sculpting</option>
-              <option>Manicura / Pedicura</option>
-              <option>Depilación láser</option>
-              <option>Radiofrecuencia</option>
-              <option>Pestañas / Cejas</option>
-              <option>Presoterapia</option>
-              <option>Microblading cejas</option>
-              <option>Maquillaje</option>
-              <option>Combo / Bono</option>
-              <option>Otro / Consultar</option>
-            </select>
+          <div class="rf-item">
+            <i class="fas fa-cut" aria-hidden="true"></i>
+            <span>Selecciona el servicio que quieras</span>
           </div>
-          <div class="fg"><label for="f-mensaje">Mensaje (opcional)</label><textarea id="f-mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas o cuándo prefieres tu cita…"></textarea></div>
-          <button type="submit" class="fsub"><i class="fas fa-paper-plane" aria-hidden="true"></i> &nbsp;Enviar solicitud</button>
-        </form>
+          <div class="rf-item">
+            <i class="far fa-bell" aria-hidden="true"></i>
+            <span>Recordatorio automático 24h antes</span>
+          </div>
+          <div class="rf-item">
+            <i class="fas fa-times-circle" aria-hidden="true"></i>
+            <span>Cancelación fácil si necesitas cambiar</span>
+          </div>
+        </div>
+
+        <button class="btn-filled reserva-btn-grande" onclick="abrirReserva(event)" aria-label="Abrir calendario de reservas">
+          <i class="far fa-calendar-check" aria-hidden="true"></i> Ver disponibilidad y reservar
+        </button>
+
+        <p class="reserva-wa">
+          ¿Prefieres hablar antes? <a href="https://wa.me/34645875065?text=Hola%20Marian%2C%20quisiera%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Escríbenos por WhatsApp</a>
+        </p>
       </div>
     </div>
   </div>
